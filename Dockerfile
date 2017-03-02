@@ -1,8 +1,12 @@
-FROM ubuntu:14.04
-MAINTAINER Dave Newman <dave@assembly.com>
+FROM alpine:3.5
+MAINTAINER Micheal Waltz <mwaltz@demandbase.com>
 
-RUN apt-get update && apt-get install -y awscli
-ADD watch /watch
+#Install awscli since it's not in alpine yet
+RUN set -x \
+    && apk add --no-cache -v bash python py-pip less groff \
+    && pip install awscli
+
+COPY watch /watch
 
 VOLUME /data
 
