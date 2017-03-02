@@ -1,4 +1,4 @@
-NAME = whatupdave/s3-volume
+NAME = demandbase/docker-s3-volume
 
 .PHONY: build release
 
